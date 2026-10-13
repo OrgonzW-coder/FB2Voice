@@ -1,3 +1,4 @@
+
 package com.orgonzw.fb2voice
 
 import android.app.Activity
@@ -128,6 +129,9 @@ class MainActivity : Activity(), TextToSpeech.OnInitListener {
         requestCode: Int,
         resultCode: Int,
         data: Intent?
+    ) {
+        super.onActivityResult(requestCode, resultCode, data)
+
         if (requestCode == 100 && resultCode == Activity.RESULT_OK) {
             val uri: Uri = data?.data ?: return
             try {
@@ -206,5 +210,3 @@ class MainActivity : Activity(), TextToSpeech.OnInitListener {
         super.onDestroy()
     }
 }
-    ) {
-        super.onActivityResult(requestCode, resultCode, data)
